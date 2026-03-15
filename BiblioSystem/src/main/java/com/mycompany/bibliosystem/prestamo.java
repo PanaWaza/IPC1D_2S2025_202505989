@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.bibliosystem;
-//import java.util.Date;
-import java.util.ArrayList;
+
+
 
 /**
  *
@@ -18,7 +18,9 @@ public class prestamo {
     private String FD; // FECHA DEVOLUCION
     private String historial;
     
-    public static ArrayList <prestamo> ListaPrestamos = new ArrayList <>();
+    
+    public static prestamo[] ListaPrestamos = new prestamo[100] ; 
+    public static int ContadorPrestamos = 0;
     
     prestamo(int carnet,String IBN, String NombreLibro,String FP, String FD,String historial){
         this.carnet = carnet;
@@ -32,7 +34,8 @@ public class prestamo {
     //  save prestamos
     public static void guardarPrestamo(int carnet ,String IBN , String NombreLibro,String FP, String FD,String historial){
         prestamo prestamistas = new prestamo(carnet,IBN,NombreLibro, FP, FD, historial);
-        ListaPrestamos.add(prestamistas);
+        ListaPrestamos[ContadorPrestamos] = prestamistas;
+        ContadorPrestamos++;
     }
 
     /**

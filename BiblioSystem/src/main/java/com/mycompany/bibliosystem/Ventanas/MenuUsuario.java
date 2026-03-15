@@ -5,8 +5,6 @@
 package com.mycompany.bibliosystem.Ventanas;
 import com.mycompany.bibliosystem.Estudiante;
 import com.mycompany.bibliosystem.prestamo;
-
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -24,6 +22,8 @@ public class MenuUsuario extends javax.swing.JFrame {
     public MenuUsuario() {
         initComponents();
         
+        int ContadorPrestamos = prestamo.ContadorPrestamos;
+        
         int carnetActual= tres.carnetActual;
         
         String nombre = Estudiante.getName(carnetActual);
@@ -31,7 +31,7 @@ public class MenuUsuario extends javax.swing.JFrame {
         LabelNombre.setText(nombre);
         
         // ingresar datos tabla del usuario
-        setValuesTable(prestamo.ListaPrestamos ,carnetActual);
+        setValuesTable(prestamo.ListaPrestamos ,carnetActual, ContadorPrestamos);
     }
 
     /**
@@ -169,23 +169,25 @@ public class MenuUsuario extends javax.swing.JFrame {
         Rventana.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void setValuesTable(ArrayList<prestamo> prestamos,int carnet){
-        DefaultTableModel modelo;
-        modelo = (DefaultTableModel)TablaUsuario.getModel();
-        modelo.setRowCount(0);
-        for (prestamo prestamo1 : prestamos) {
-            if (prestamo1.getCarnet() == carnet) {
-                Object []datos = new Object [5];
-                datos[0] = prestamo1.getNombreLibro();
-                datos[1]= prestamo1.getIBN();
-                datos[2]= prestamo1.getFP();
-                datos[3]=prestamo1.getFD();
-                datos[4]=prestamo1.getHistorial();
-                
-                modelo.addRow(datos);
-            }
+    private void setValuesTable(prestamo[] prestamos, int carnet,int ContadorPrestamos) {
+    DefaultTableModel modelo = (DefaultTableModel) TablaUsuario.getModel();
+    modelo.setRowCount(0); // Limpiamos la tabla antes de cargar
+
+    // Usamos 'contadorPrestamos' (o el nombre que tenga tu variable global de control)
+    for (int i = 0; i < ContadorPrestamos; i++) {
+        // Validamos que la posición no sea null y que el carnet coincida
+        if (prestamos[i] != null && prestamos[i].getCarnet() == carnet) {
+            Object[] datos = new Object[5];
+            datos[0] = prestamos[i].getNombreLibro();
+            datos[1] = prestamos[i].getIBN();
+            datos[2] = prestamos[i].getFP();
+            datos[3] = prestamos[i].getFD();
+            datos[4] = prestamos[i].getHistorial();
+            
+            modelo.addRow(datos);
         }
     }
+}
     
     /**
      * @param args the command line arguments

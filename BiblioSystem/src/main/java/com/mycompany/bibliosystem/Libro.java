@@ -5,7 +5,6 @@
 package com.mycompany.bibliosystem;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 
 /**
@@ -106,7 +105,9 @@ public class Libro {
     private int ejemplares=0;
     
     // gloval     
-    public static ArrayList <Libro> libros = new ArrayList<>();
+    //public static ArrayList <Libro> libros = new ArrayList<>();
+    public static Libro[] libros =  new Libro [100];
+    public static int ContadorLibros = 0;
     
     // constructor de objeto libro con 6 parametros
     public Libro(String titulo,String autor,String genero,String publisYear,int ejemplares, String IBN) {
@@ -122,21 +123,22 @@ public class Libro {
   
    public static void saveBooks (String title,String autor,String genero,String publisYear,int ejemplares,String ibn){
        Libro nuevoLibro = new Libro(title,autor,genero,publisYear,ejemplares,ibn);
-       libros.add(nuevoLibro);
+       libros[ContadorLibros] = nuevoLibro ;
+       ContadorLibros ++;
    }
     
    
-   public static String getBookName(String ibn){
-       String BookName;
-       for (Libro libro : libros) {
-           // van y chingan a su madre caracteres vacios 
-           if (libro.IBN.trim().equals(ibn.trim())) {
-               BookName = libro.titulo;
-               return BookName;
-           }
-       }
-       return BookName = ""; // retorno por si el ibn esta malo
-   }
+   public static String getBookName(String ibn) {
+    // Usamos el contador (limitador) para evitar errores con posiciones nulas
+    for (int i = 0; i < ContadorLibros; i++) {
+        // Validación de null por seguridad, aunque el contador ya ayuda
+        if (libros[i] != null && libros[i].IBN.trim().equals(ibn.trim())) {
+            return libros[i].titulo; // Retornamos directo
+        }
+    }
+    
+    return ""; // Retornamos vacío si no se encontró coincidencia
+}
     
    public static String getDatePrestamo(){
        

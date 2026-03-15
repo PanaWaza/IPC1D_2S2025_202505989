@@ -4,7 +4,6 @@
  */
 package com.mycompany.bibliosystem.Ventanas;
 import com.mycompany.bibliosystem.Libro;
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
@@ -22,7 +21,9 @@ public final class MenuPrestamo extends javax.swing.JFrame {
      */
     public MenuPrestamo() {
         initComponents();
-        CargarTabla(com.mycompany.bibliosystem.Libro.libros);
+        
+        int ContadorLibros = Libro.ContadorLibros;
+        CargarTabla(com.mycompany.bibliosystem.Libro.libros , ContadorLibros);
         
         
     }
@@ -161,8 +162,8 @@ public final class MenuPrestamo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-        CargarTabla(com.mycompany.bibliosystem.Libro.libros);
+        int ContadorLibros = Libro.ContadorLibros;
+        CargarTabla(com.mycompany.bibliosystem.Libro.libros , ContadorLibros);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -206,24 +207,25 @@ public final class MenuPrestamo extends javax.swing.JFrame {
         }  
     }
     
-    public void CargarTabla (ArrayList<Libro> Libros){
-        
-        DefaultTableModel modelo ;
-        
-        modelo = (DefaultTableModel)TablaLibros.getModel();
-        
-       modelo.setRowCount(0);
-       
-       for (Libro Libro1 : Libros) {
-           Object fila[] = new Object[5];
-               fila[0] = Libro1.getTitulo();
-               fila[1]= Libro1.getAutor();
-               fila[2]= Libro1.getIBN();
-               fila[3]=Libro1.getPublishYear();
-               fila[4]=Libro1.getEjemplares();
-               modelo.addRow(fila);
-           }
-       }
+    public void CargarTabla(Libro[] Libros,int ContadorLibros) {
+    DefaultTableModel modelo = (DefaultTableModel) TablaLibros.getModel();
+    modelo.setRowCount(0); // Limpia la tabla actual
+
+    // Iteramos solo hasta la cantidad de libros realmente guardados
+    for (int i = 0; i < ContadorLibros; i++) {
+        // Aseguramos que la posición no sea nula por seguridad
+        if (Libros[i] != null) {
+            Object fila[] = new Object[5];
+            fila[0] = Libros[i].getTitulo();
+            fila[1] = Libros[i].getAutor();
+            fila[2] = Libros[i].getIBN();
+            fila[3] = Libros[i].getPublishYear();
+            fila[4] = Libros[i].getEjemplares();
+            
+            modelo.addRow(fila);
+        }
+    }
+}
     
     
     
