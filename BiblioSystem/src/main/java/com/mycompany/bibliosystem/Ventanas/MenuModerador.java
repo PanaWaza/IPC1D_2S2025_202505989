@@ -148,10 +148,11 @@ public class MenuModerador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        GestionarEstudiante ventana = new GestionarEstudiante();
         this.dispose();
-        ventana.setLocationRelativeTo(null);
-        ventana.setVisible(true);
+        GestionarEstudiante ven_G = new GestionarEstudiante();
+        ven_G.setLocationRelativeTo(null);
+        ven_G.setVisible(true);
+        System.out.println("mostar ventana");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

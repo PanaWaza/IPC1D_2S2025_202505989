@@ -4,6 +4,9 @@
  */
 package com.mycompany.bibliosystem;
 
+import static com.mycompany.bibliosystem.Estudiante.ContadorEstudiante;
+import static com.mycompany.bibliosystem.Estudiante.estudiante;
+import static com.mycompany.bibliosystem.Estudiante.saveStudent;
 import java.time.LocalDate;
 
 
@@ -158,7 +161,54 @@ public class Libro {
        return Sdate;
    }
    
+   public static boolean DatosRegistro(String name, String id, String autor,String genero, String añoP, int Ejemplares, boolean guardar){
+       // buscar si ya exite el carnet
+       for (int i = 0; i < ContadorLibros; i++) { 
+            if (libros[i].IBN.equalsIgnoreCase(id)) {
+                return true; // el libro ya existe
+            }
+        }
+       if (guardar == true) {
+           saveBooks(name,autor,genero,añoP,Ejemplares,id);
+       }
+       return false; // el libro no existe
+   }
    
+   public static Object[][] TresDatosLibro() {
+    
+    Object[][] matriz = new Object[ContadorLibros][3]; 
+    
+    for (int i = 0; i < ContadorLibros; i++) {
+        if (libros[i] != null) {
+            matriz[i][0] = libros[i].titulo;
+            matriz[i][1] = libros[i].IBN;
+            matriz[i][2] = libros[i].ejemplares;
+        }
+    }
+    return matriz;
+}
+   
+public static  void eliminarRegistro(int fila) {
+    // 1. Validamos que la fila sea válida y que el contador sea mayor a 0
+    if (fila >= 0 && fila < ContadorLibros) {
+        
+        // 2. Realizamos el desplazamiento (Shift) para cerrar el hueco
+        for (int i = fila; i < ContadorLibros - 1; i++) {
+            libros[i] = libros[i + 1];
+        }
+        
+        // 3. Limpiamos la última posición original (la que quedó duplicada)
+        estudiante[ContadorLibros - 1] = null;
+        
+        // 4. Reducimos el contador de objetos reales en memoria
+        ContadorLibros--;
+       
+        
+        System.out.println("Registro libro eliminado ");
+    } else {
+        System.out.println("Error: No has seleccionado una fila válida.");
+    }
+}
    
     /*
     Permite buscar un libro por código interno o ISBN y modificar sus datos, excepto el 

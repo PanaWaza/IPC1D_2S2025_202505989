@@ -54,6 +54,7 @@ public class MenuUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         LabelNombre = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         jMenu1.setText("menu");
 
@@ -104,6 +105,9 @@ public class MenuUsuario extends javax.swing.JFrame {
 
         LabelNombre.setText("jLabel3");
 
+        jButton4.setText("Ver Perfil");
+        jButton4.addActionListener(this::jButton4ActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,23 +123,30 @@ public class MenuUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(97, 97, 97)
-                        .addComponent(LabelNombre)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(34, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LabelNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)
+                        .addGap(62, 62, 62))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(LabelNombre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                    .addComponent(LabelNombre)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,6 +179,14 @@ public class MenuUsuario extends javax.swing.JFrame {
         Rventana.setLocationRelativeTo(null);
         Rventana.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        PerfilEstudiante ventana = new PerfilEstudiante();
+        this.dispose();
+        ventana.setLocationRelativeTo(null);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void setValuesTable(prestamo[] prestamos, int carnet,int ContadorPrestamos) {
     DefaultTableModel modelo = (DefaultTableModel) TablaUsuario.getModel();
@@ -220,6 +239,7 @@ public class MenuUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;

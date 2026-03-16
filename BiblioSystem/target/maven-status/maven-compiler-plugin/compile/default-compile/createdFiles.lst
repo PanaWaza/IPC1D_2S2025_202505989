@@ -6,6 +6,7 @@ com\mycompany\bibliosystem\Moderadores.class
 com\mycompany\bibliosystem\Libro.class
 com\mycompany\bibliosystem\Ventanas\MenuPrestamo$1.class
 com\mycompany\bibliosystem\Ventanas\MenuUsuario.class
+com\mycompany\bibliosystem\Ventanas\PerfilEstudiante.class
 com\mycompany\bibliosystem\Ventanas\GestionarEstudiante.class
 com\mycompany\bibliosystem\Ventanas\MenuPrestamo.class
 com\mycompany\bibliosystem\BiblioSystem.class

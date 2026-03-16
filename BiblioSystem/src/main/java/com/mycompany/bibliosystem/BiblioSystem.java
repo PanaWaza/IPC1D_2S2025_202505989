@@ -23,6 +23,5 @@ public class BiblioSystem {
         
         uno VentanaPrincipal = new uno ();
         VentanaPrincipal.setVisible(true);
-
     }
 }
