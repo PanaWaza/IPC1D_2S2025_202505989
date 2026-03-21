@@ -136,3 +136,57 @@ Nueva línea de texto
 Se creo nuevo usuario exitosso ,202505989,dos,2026-03-20,20:53:00.594388200
 Inicio de secion exitoso Estudiante,202505989,tres,2026-03-20,20:53:12.101055800
 El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,20:53:12.149293500
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,22:51:34.107501
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,22:51:34.257211700
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,22:55:50.388117900
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,22:55:50.440466600
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,22:56:23.985785500
+Inicio de secion exitoso Moderador,2024001,tres,2026-03-20,22:56:35.965415800
+Se accedio al boton Gestion Libros ,2024001,MenuModerador,2026-03-20,22:56:38.198202400
+Inicio de secion exitoso Moderador,2024001,tres,2026-03-20,22:57:04.021390
+Se accedio al boton Gestion estudiantes ,2024001,MenuModerador,2026-03-20,22:57:06.771352
+Inicio de secion exitoso Moderador,2024001,tres,2026-03-20,22:57:33.029380
+Se accedio al boton Gestion prestamos ,2024001,MenuModerador,2026-03-20,22:57:40.554301300
+Inicio de secion exitoso Moderador,2024001,tres,2026-03-20,22:58:06.523326400
+Se accedio al boton Gestion reportes ,2024001,MenuModerador,2026-03-20,22:58:25.232273
+Nueva línea de texto
+Se creo nuevo usuario exitosso ,2025001,dos,2026-03-21,13:21:49.527871700
+Moderador agregó libro correctamente ,ADMIN,GestionLibros,2026-03-21,13:22:45.022643900
+Inicio de secion exitoso Estudiante,2025001,tres,2026-03-21,13:31:51.043420500
+El estudiante ingreso a su menu,2025001,MenuUsuario,2026-03-21,13:31:51.094284
+Prestamo de libro fallido (no se ingreso ibn),2025001,MenuPrestamo,2026-03-21,13:31:58.306164500
+Prestamo de libro exitoso ,2025001,MenuPrestamo,2026-03-21,13:32:07.868756300
+El estudiante ingreso a su menu,2025001,MenuUsuario,2026-03-21,13:32:11.098878200
+El estudiante ingreso a su menu,2025001,MenuUsuario,2026-03-21,13:32:23.926739900
+Prestamo de libro fallido (no se ingreso ibn),2025001,MenuPrestamo,2026-03-21,13:32:48.060077800
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Se creo nuevo usuario exitosso ,20250001,dos,2026-03-21,13:36:48.348964100
+Inicio de secion exitoso Estudiante,20250001,tres,2026-03-21,13:36:59.615466300
+El estudiante ingreso a su menu,20250001,MenuUsuario,2026-03-21,13:36:59.702500300
+Prestamo de libro exitoso ,20250001,MenuPrestamo,2026-03-21,13:37:16.344582800
+El estudiante ingreso a su menu,20250001,MenuUsuario,2026-03-21,13:37:19.039801700
+Moderador agregó libro correctamente ,ADMIN,GestionLibros,2026-03-21,13:38:04.971284900
+Inicio de secion exitoso Estudiante,20250001,tres,2026-03-21,13:38:22.463696400
+El estudiante ingreso a su menu,20250001,MenuUsuario,2026-03-21,13:38:22.484466800
+Prestamo de libro exitoso ,20250001,MenuPrestamo,2026-03-21,13:38:29.917431400
+El estudiante ingreso a su menu,20250001,MenuUsuario,2026-03-21,13:38:32.233464700
+Se elimino el libro correctamente MOderador,ADMIN,GestionLibros,2026-03-21,13:39:50.448344
+No se pudo eliminar libro (fuera de parametro) ,ADMIN,GestionLibros,2026-03-21,13:40:01.152589
+Moderador error de eliminacion libro (se intento eliminar mas de la cantidad que esta permitida),ADMIN,GestionLibros,2026-03-21,13:40:13.523844100
+Asignacion de prestamo exitoso,20250001,RegistroPrestamo,2026-03-21,13:41:05.101892
+Moderador agregó libro correctamente (se reconocio que el libro es similar a uno en stock se adjunto con el ),ADMIN,GestionLibros,2026-03-21,13:44:40.932996500
+Moderador Error al agregar libro  (isbn invalido),ADMIN,GestionLibros,2026-03-21,13:45:11.698252300
+Moderador agregó libro correctamente ,ADMIN,GestionLibros,2026-03-21,13:45:20.313086300
+busqueda de libro por titulo moderador (campo vacio),ADMIN,GestionLibros,2026-03-21,13:46:13.989818200
+Moderador No se puedo eliminar estudiante(prestamos activos),ADMIN,Gestionar Esudiante,2026-03-21,13:46:50.851721500
+Moderador se elimino el estudiante (Erick) , (20250001),ADMIN,Gestionar Esudiante,2026-03-21,13:46:54.395564600

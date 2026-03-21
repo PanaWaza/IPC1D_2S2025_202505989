@@ -28,15 +28,15 @@ public class LectorArchivoUsuarios {
                     int carnet = Integer.parseInt(datos[2]);
                     String contraseña = datos[3];
                     String carrera = datos[4];
-                    int PresActivos = Integer.parseInt(datos[5]);
-                    int PresVencidos = Integer.parseInt(datos[6]);
+                    int PresActivos = Integer.parseInt(datos[5].trim());
+                    int PresVencidos = Integer.parseInt(datos[6].trim());
                     Estudiante.saveStudent(rol, nombre, carnet, contraseña, carrera, PresActivos, PresVencidos);
                 }
                 else {
                     int rolModerador = Integer.parseInt(datos[0]);
                     String nombreModerador = datos[1];
                     String contraeModerador = datos[2];
-                    int carnet = Integer.parseInt(datos[3]);
+                    int carnet = Integer.parseInt(datos[3].trim());
                     Moderadores.saveModeradores(rolModerador,nombreModerador,contraeModerador,carnet);
                 }
             }
