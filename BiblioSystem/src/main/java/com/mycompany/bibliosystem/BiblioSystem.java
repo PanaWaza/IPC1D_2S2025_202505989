@@ -12,6 +12,10 @@ import com.mycompany.bibliosystem.Ventanas.*;
 public class BiblioSystem {
 
     public static void main(String[] args) {
+        
+        // crear la bitacora 
+        Bitacora.CrearBitacora();
+        
         System.out.println("Hello World!");
         // leer archivo de texto de las cuentas
         LectorArchivoUsuarios.LectorUsuarios();
@@ -23,5 +27,8 @@ public class BiblioSystem {
         
         uno VentanaPrincipal = new uno ();
         VentanaPrincipal.setVisible(true);
+       
+       
+       
     }
 }

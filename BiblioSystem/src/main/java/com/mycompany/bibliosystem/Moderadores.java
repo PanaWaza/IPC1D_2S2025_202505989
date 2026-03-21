@@ -25,7 +25,7 @@ public class Moderadores {
         this.carnet=carnet;
     }
     
-    static void saveModeradores(int rol ,String name, String password,int carnet){
+    public static void saveModeradores(int rol ,String name, String password,int carnet){
         Moderadores accesoModerador = new Moderadores(rol,name,password,carnet);
         ListaModeradores[ContadorModeradores] = accesoModerador;
         ContadorModeradores ++ ;
@@ -43,5 +43,35 @@ public class Moderadores {
     // Si terminamos el ciclo y no encontramos nada, devolvemos una cadena vacía
     return ""; 
 }
+    public static void EliminarModerador (int carnet){
+        boolean llave = false ;
+        for (int i = 0; i < ContadorModeradores; i++) {
+            if (ListaModeradores[i].carnet == carnet && ListaModeradores[i] != null) {
+                llave = true;
+            }
+            if (llave) {
+                ListaModeradores[i] = ListaModeradores[i+1];
+            }
+        }
+        ContadorModeradores--;
+    }
+    
+    public static Object[][] MatrizModeradores(){
+        Object[][] matriz = new Object[50][2];
+        for (int i = 0; i < ContadorModeradores; i++) {
+            matriz[i][0] = ListaModeradores[i].nombre;
+            matriz[i][1] = ListaModeradores[i].carnet;
+        }
+        return matriz ;
+    }
+    
+    public static boolean CarnetRepetido(int carnet){
+        for (int i = 0; i < ContadorModeradores; i++) {
+            if (ListaModeradores[i].carnet == carnet && ListaModeradores[i] != null) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

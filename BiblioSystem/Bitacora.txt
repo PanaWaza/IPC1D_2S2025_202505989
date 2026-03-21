@@ -1,0 +1,138 @@
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,14:45:41.986595800
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,14:45:42.045947500
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,14:45:47.830874400
+Prestamo de libro fallido (prestamos vencidos),2023001,MenuPrestamo,2026-03-20,14:46:02.714139200
+Prestamo de libro fallido (prestamos vencidos),2023001,MenuPrestamo,2026-03-20,14:46:28.645712800
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,14:46:31.880838300
+Inicio de secion exitoso Estudiante,2023007,tres,2026-03-20,14:47:11.550427100
+El estudiante ingreso a su menu,2023007,MenuUsuario,2026-03-20,14:47:11.561397700
+Prestamo de libro fallido (quiso prestar mas de 3 libros),2023007,MenuPrestamo,2026-03-20,14:47:17.646457500
+El estudiante ingreso a su menu,2023007,MenuUsuario,2026-03-20,14:47:23.458179
+Se creo nuevo usuario exitosso ,202505989,dos,2026-03-20,14:47:48.263791700
+Inicio de secion exitoso Estudiante,202505989,tres,2026-03-20,14:48:01.447945900
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,14:48:01.457244900
+Prestamo de libro fallido (prestamos vencidos),202505989,MenuPrestamo,2026-03-20,14:48:07.555839900
+Nueva línea de texto
+Se creo nuevo usuario exitosso ,2024005989,dos,2026-03-20,14:59:14.611178200
+Inicio de secion fallido Estudiante,202405989,tres,2026-03-20,14:59:30.707510700
+Inicio de secion fallido Estudiante,202405989,tres,2026-03-20,14:59:34.048283600
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,14:59:49.885437100
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,14:59:49.932718800
+Prestamo de libro fallido (Ejemplares insuficientes),2023001,MenuPrestamo,2026-03-20,15:00:02.310559800
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,15:00:54.043300500
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,15:00:54.093585200
+Prestamo de libro fallido (Ejemplares insuficientes),2023001,MenuPrestamo,2026-03-20,15:01:01.387450100
+Nueva línea de texto
+Se creo nuevo usuario exitosso ,202505989,dos,2026-03-20,15:03:04.695396300
+Inicio de secion exitoso Estudiante,202505989,tres,2026-03-20,15:03:24.375043800
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,15:03:24.419637
+Prestamo de libro fallido (No se encontro el libro),202505989,MenuPrestamo,2026-03-20,15:03:33.738139800
+Nueva línea de texto
+Se creo nuevo usuario exitosso ,202505989,dos,2026-03-20,15:07:54.943703500
+Inicio de secion exitoso Estudiante,202505989,tres,2026-03-20,15:08:07.891163400
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,15:08:07.935003300
+Prestamo de libro exitoso ,202505989,MenuPrestamo,2026-03-20,15:08:10.485360200
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,15:08:13.012475100
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,15:16:16.470996300
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,15:16:16.479970500
+Prestamo de libro exitoso ,2023001,MenuPrestamo,2026-03-20,15:16:21.120955800
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,15:16:23.254425700
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,16:02:57.762555300
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:02:57.816747400
+Prestamo de libro exitoso ,2023001,MenuPrestamo,2026-03-20,16:03:01.305954100
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:03:03.384099
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,16:21:09.721155100
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:21:09.775166600
+Prestamo de libro exitoso ,2023001,MenuPrestamo,2026-03-20,16:21:12.958579600
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:21:15.365252700
+El estudiante visito su perfil,2023001,PerfilEstudiante,2026-03-20,16:21:34.896737500
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,16:36:21.691033300
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:36:21.757867700
+Prestamo de libro exitoso ,2023001,MenuPrestamo,2026-03-20,16:36:24.602824100
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:36:26.245524600
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,16:44:08.677290300
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:44:08.736131300
+Prestamo de libro fallido (No se encontro el libro),2023001,MenuPrestamo,2026-03-20,16:44:16.431595400
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,16:48:12.506638200
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:48:12.559887500
+Prestamo de libro exitoso ,2023001,MenuPrestamo,2026-03-20,16:48:15.246793300
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:48:17.438069400
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,16:52:52.291182200
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:52:52.344830600
+Prestamo de libro fallido (no se ingreso ibn),2023001,MenuPrestamo,2026-03-20,16:52:58.510000100
+Prestamo de libro fallido (Ejemplares insuficientes),2023001,MenuPrestamo,2026-03-20,16:53:24.369514
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,16:54:20.062062
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,16:54:20.115022100
+Prestamo de libro fallido (no se ingreso ibn),2023001,MenuPrestamo,2026-03-20,16:54:25.420783700
+Prestamo de libro fallido (Ejemplares insuficientes),2023001,MenuPrestamo,2026-03-20,16:54:46.122811900
+Prestamo de libro fallido (No se encontro el libro),2023001,MenuPrestamo,2026-03-20,16:55:26.069591300
+Prestamo de libro fallido (No se encontro el libro),2023001,MenuPrestamo,2026-03-20,16:55:28.412217100
+Prestamo de libro fallido (No se encontro el libro),2023001,MenuPrestamo,2026-03-20,16:56:21.754178600
+Nueva línea de texto
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,17:00:16.720570200
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,17:00:16.775079300
+Prestamo de libro fallido (no se ingreso ibn),2023001,MenuPrestamo,2026-03-20,17:00:23.396003200
+Prestamo de libro exitoso ,2023001,MenuPrestamo,2026-03-20,17:00:52.005844100
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,17:00:55.290708700
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Nueva línea de texto
+Se creo nuevo usuario exitosso ,202505989,dos,2026-03-20,20:28:34.582837
+Inicio de secion exitoso Estudiante,202505989,tres,2026-03-20,20:28:47.654353600
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,20:28:47.703130100
+Prestamo de libro fallido (no se ingreso ibn),202505989,MenuPrestamo,2026-03-20,20:28:53.544484400
+Prestamo de libro exitoso ,202505989,MenuPrestamo,2026-03-20,20:29:06.694681200
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,20:29:09.013053900
+Inicio de secion exitoso Moderador,2024001,tres,2026-03-20,20:29:31.593761300
+Se accedio al boton Gestion estudiantes ,2024001,MenuModerador,2026-03-20,20:29:34.421778400
+Nueva línea de texto
+Nueva línea de texto
+Inicio de secion fallido Estudiante,202505989,tres,2026-03-20,20:37:45.732142200
+Se creo nuevo usuario exitosso ,202505989,dos,2026-03-20,20:38:07.384043700
+Inicio de secion exitoso Estudiante,202505989,tres,2026-03-20,20:38:25.044432400
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,20:38:25.092691600
+Prestamo de libro exitoso ,202505989,MenuPrestamo,2026-03-20,20:38:41.731487100
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,20:38:43.887230200
+Inicio de secion exitoso Estudiante,202505989,tres,2026-03-20,20:39:02.133834
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,20:39:02.145801100
+El estudiante visito su perfil,202505989,PerfilEstudiante,2026-03-20,20:39:03.337775300
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,20:39:09.729792500
+Inicio de secion exitoso Estudiante,2023001,tres,2026-03-20,20:39:22.796629800
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,20:39:22.807323800
+El estudiante visito su perfil,2023001,PerfilEstudiante,2026-03-20,20:39:28.296463400
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,20:39:32.439358600
+El estudiante ingreso a su menu,2023001,MenuUsuario,2026-03-20,20:39:37.749108
+Inicio de secion exitoso Moderador,2024001,tres,2026-03-20,20:39:50.892838400
+Se accedio al boton Gestion estudiantes ,2024001,MenuModerador,2026-03-20,20:39:53.613566900
+Inicio de secion exitoso Moderador,2024001,tres,2026-03-20,20:40:53.978638300
+Se accedio al boton Gestion Libros ,2024001,MenuModerador,2026-03-20,20:40:56.344895
+Moderador error de eliminacion libro (se intento eliminar mas de la cantidad que esta permitida),2024001,GestionLibros,2026-03-20,20:41:07.895542200
+busqueda de libro por titulo moderador (campo vacio),2024001,GestionLibros,2026-03-20,20:41:29.181987700
+Moderador Error al agregar libro  (isbn invalido),2024001,GestionLibros,2026-03-20,20:42:09.120988700
+Moderador agregó libro correctamente ,2024001,GestionLibros,2026-03-20,20:42:22.982201500
+Inicio de secion exitoso Moderador,2024001,tres,2026-03-20,20:42:38.171079200
+Se accedio al boton Gestion prestamos ,2024001,MenuModerador,2026-03-20,20:42:43.228553
+Asignacion de prestamo exitoso,2023001,RegistroPrestamo,2026-03-20,20:43:19.629001400
+Inicio de secion exitoso Moderador,2024001,tres,2026-03-20,20:43:39.230157
+Se accedio al boton Gestion reportes ,2024001,MenuModerador,2026-03-20,20:43:42.732727100
+Nueva línea de texto
+Se creo nuevo usuario exitosso ,202505989,dos,2026-03-20,20:47:19.045740700
+Nueva línea de texto
+Inicio de secion fallido Estudiante,202505989,tres,2026-03-20,20:47:38.486138700
+Nueva línea de texto
+Se creo nuevo usuario exitosso ,202505989,dos,2026-03-20,20:53:00.594388200
+Inicio de secion exitoso Estudiante,202505989,tres,2026-03-20,20:53:12.101055800
+El estudiante ingreso a su menu,202505989,MenuUsuario,2026-03-20,20:53:12.149293500

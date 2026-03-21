@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.bibliosystem.Ventanas;
+import com.mycompany.bibliosystem.Bitacora;
 import com.mycompany.bibliosystem.Estudiante;
 
 
@@ -12,6 +13,8 @@ import com.mycompany.bibliosystem.Estudiante;
  */
 public class PerfilEstudiante extends javax.swing.JFrame {
     
+    private static String MoB = "PerfilEstudiante";
+    private static String OpB = "El estudiante visito su perfil";
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PerfilEstudiante.class.getName());
 
     /**
@@ -21,6 +24,7 @@ public class PerfilEstudiante extends javax.swing.JFrame {
         initComponents();
         
         int CarnetActual = tres.carnetActual;
+        String TextCarnet = Integer.toString(CarnetActual);
         
         Object datos[] =   Estudiante.obtenerDatos(CarnetActual);
         
@@ -30,6 +34,8 @@ public class PerfilEstudiante extends javax.swing.JFrame {
         carrera.setText(datos[3].toString());
         PA.setText(datos[4].toString());
         PV.setText(datos[5].toString());
+        
+        Bitacora.appendBitacora(OpB, TextCarnet , MoB);
     }
 
     /**

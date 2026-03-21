@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.bibliosystem.Ventanas;
+import com.mycompany.bibliosystem.Bitacora;
+import com.mycompany.bibliosystem.EscrituraArchivoCuentas;
 import com.mycompany.bibliosystem.Estudiante;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -13,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GestionarEstudiante extends javax.swing.JFrame {
     
+    private String Mcarnet = tres.Mcarnet();
+    private String MoB = "Gestionar Esudiante";
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GestionarEstudiante.class.getName());
 
     /**
@@ -145,8 +149,8 @@ public class GestionarEstudiante extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(carnet))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94))))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,6 +220,8 @@ public class GestionarEstudiante extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        // boton agregar estudiante
+        
         agregarEstudiante();
         MostrarEstudiantes(); // actualizar la tabla
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -245,14 +251,31 @@ public class GestionarEstudiante extends javax.swing.JFrame {
         
         if (registro == true ) {// ver si el carnet existe
             JOptionPane.showMessageDialog(this, " El carnet ya existe ", "Error : ",JOptionPane.ERROR_MESSAGE);
+            Bitacora.appendBitacora("Operador No se puedo agregar estudiante(carnet ya existe)", Mcarnet , MoB);
+            return;
         }
         JOptionPane.showMessageDialog(this, " Registro exitoso ", "Operacion completada : ",JOptionPane.INFORMATION_MESSAGE);
     }
     
     private void eliminarFila(){
         int fila = TablaEstudiante.getSelectedRow();
-        Estudiante.eliminarRegistro(fila);
-        MostrarEstudiantes(); // actualizar la tabla
+        
+        if (Estudiante.estudiante[fila].prestamosActivos > 0 || Estudiante.estudiante[fila].prestamosVencidos >= 1) {
+            JOptionPane.showMessageDialog(this, "No se puede eliminar el estudiante, tiene prestamos activos o vencidos ", "Error : ",JOptionPane.ERROR_MESSAGE);
+        
+            Bitacora.appendBitacora("Moderador No se puedo eliminar estudiante(prestamos activos)", Mcarnet , MoB);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Se elimino el estudiante");
+            
+            Estudiante.eliminarRegistro(fila);
+            MostrarEstudiantes(); // actualizar la tabla
+            String nombreE = TablaEstudiante.getValueAt(fila, 0).toString();
+            String CarnetE = TablaEstudiante.getValueAt(fila, 1).toString();
+            Bitacora.appendBitacora("Moderador se elimino el estudiante ("+nombreE+ ") , ("+CarnetE+")", Mcarnet , MoB);
+            int carr = Integer.parseInt(CarnetE);
+            EscrituraArchivoCuentas.EliminarEstudiante(carr);
+        }
     }
     
     private void MostrarEstudiantes(){

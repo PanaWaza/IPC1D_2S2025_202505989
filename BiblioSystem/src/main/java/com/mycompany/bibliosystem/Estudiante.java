@@ -14,11 +14,11 @@ public class Estudiante {
     int carnet;
     String contraseña;
     String carrera;
-    int prestamosActivos = 0;
-    int prestamosVencidos = 0;
+    public int prestamosActivos = 0;
+    public int prestamosVencidos = 0;
     
         // gloval
-        static Estudiante[] estudiante = new Estudiante [100];
+        public static Estudiante[] estudiante = new Estudiante [100];
         public static int ContadorEstudiante = 0;
         
         public Estudiante(int rol,String nombre, int carnet,String contraseña,String carrera,int prestamosActivos,int prestamosVencidos) {
@@ -43,7 +43,7 @@ public class Estudiante {
     Object[][] matriz = new Object[ContadorEstudiante][3]; 
     
     for (int i = 0; i < ContadorEstudiante; i++) {
-        if (estudiante[i] != null) {
+        if (estudiante[i] != null ) {
             matriz[i][0] = estudiante[i].nombre;
             matriz[i][1] = estudiante[i].carnet;
             matriz[i][2] = estudiante[i].prestamosActivos;
@@ -104,18 +104,14 @@ public class Estudiante {
    }
    
    public static  void eliminarRegistro(int fila) {
-    // 1. Validamos que la fila sea válida y que el contador sea mayor a 0
     if (fila >= 0 && fila < ContadorEstudiante) {
         
-        // 2. Realizamos el desplazamiento (Shift) para cerrar el hueco
+        
         for (int i = fila; i < ContadorEstudiante - 1; i++) {
             estudiante[i] = estudiante[i + 1];
         }
-        
-        // 3. Limpiamos la última posición original (la que quedó duplicada)
         estudiante[ContadorEstudiante - 1] = null;
         
-        // 4. Reducimos el contador de objetos reales en memoria
         ContadorEstudiante--;
        
         
@@ -123,7 +119,17 @@ public class Estudiante {
     } else {
         System.out.println("Error: No has seleccionado una fila válida.");
     }
+    
+    
 }
+   
+   public static void AgregarPrestamosActivos (int carnet){
+       for (int i = 0; i < ContadorEstudiante; i++) {
+           if (estudiante[i].carnet == carnet) {
+               estudiante[i].prestamosActivos ++;
+           }
+       }
+   }
     
     /*
     Listar todos los estudiantes registrados con su estado actual. 

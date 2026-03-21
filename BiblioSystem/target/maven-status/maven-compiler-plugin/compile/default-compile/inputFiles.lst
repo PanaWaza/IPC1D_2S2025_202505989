@@ -1,4 +1,8 @@
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\BiblioSystem.java
+C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Bitacora.java
+C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\EscrituraArchivoCuentas.java
+C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\EscrituraLibros.java
+C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\EscrituraPrestamos.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Estudiante.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\LectorArchivoLibros.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\LectorArchivoPrestamos.java
@@ -6,8 +10,10 @@ C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\myc
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Libro.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Moderadores.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\prestamo.java
+C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Reportes.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\dos.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\GestionarEstudiante.java
+C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\GestionarModeradores.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\GestionLibros.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\MenuAdmin.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\MenuModerador.java
@@ -15,5 +21,6 @@ C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\myc
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\MenuUsuario.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\PerfilEstudiante.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\RegistrarPrestamo.java
+C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\RegistroPrestamo.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\tres.java
 C:\Users\Pana_Waza\Documents\NetBeansProjects\BiblioSystem\src\main\java\com\mycompany\bibliosystem\Ventanas\uno.java

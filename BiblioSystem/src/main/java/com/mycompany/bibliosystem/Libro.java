@@ -101,11 +101,11 @@ public class Libro {
         this.ejemplares = ejemplares;
     }
     public String IBN;
-    private String titulo;
-    private String autor;
-    private String genero;
-    private String publishYear;
-    private int ejemplares=0;
+    public String titulo;
+    public String autor;
+    public String genero;
+    public String publishYear;
+    public int ejemplares=0;
     
     // gloval     
     //public static ArrayList <Libro> libros = new ArrayList<>();
@@ -130,6 +130,15 @@ public class Libro {
        ContadorLibros ++;
    }
     
+   // buscar si hay suficientes ejemplares disponibles (mas de 1 para hacer prestamo)
+   public static boolean ejemp(String ibn){
+       for (int i = 0; i < ContadorLibros; i++) {
+           if (libros[i].IBN.trim().equals(ibn.trim()) && libros[i].ejemplares >= 1) {
+              return true; 
+           }
+       }
+       return false;
+   }
    
    public static String getBookName(String ibn) {
     // Usamos el contador (limitador) para evitar errores con posiciones nulas
@@ -142,7 +151,8 @@ public class Libro {
     
     return ""; // Retornamos vacío si no se encontró coincidencia
 }
-    
+
+   
    public static String getDatePrestamo(){
        
        LocalDate fecha = LocalDate.now();
@@ -154,17 +164,103 @@ public class Libro {
    public static String SumaFecha(String fechaPrestamo){
        
        LocalDate date = LocalDate.parse(fechaPrestamo);
-       date = date.plusWeeks(1);
+       date = date.plusDays(15);
        
        String Sdate = date.toString();
        
        return Sdate;
    }
    
+   public static void SumaEjemplares(String ibn){
+       for (int i = 0; i < ContadorLibros; i++) {
+           if (libros[i].IBN.trim().equals(ibn.trim())) {
+               libros[i].ejemplares++;
+               return;
+           }
+       }
+   }
+   
+   
+   public static void RestaEjemplares(String ibn){
+       for (int i = 0; i < ContadorLibros; i++) {
+           if (libros[i].IBN.trim().equals(ibn.trim())) {
+               libros[i].ejemplares--;
+               return;
+           }
+       }
+   }
+   
+   
+   
+   public static Object[] foundIbn(String ibn){
+       Object[] fila = new Object [5];
+       for (int i = 0; i < ContadorLibros; i++) {
+           if (libros[i].IBN.trim().equals(ibn.trim())) {
+               fila[0] = libros[i].titulo;
+               fila[1] = libros[i].autor;
+               fila[2] = libros[i].genero;
+               fila[3] = libros[i].publishYear;
+               fila[4] = libros[i].ejemplares;
+               return fila;
+           }
+       }
+       return fila;
+   }
+   
+   public static Object [][] foundTitulo(String busqueda){
+       Object[][] Matriz = new Object [100][5];
+       int accesoTabla = 0;
+       for (int i = 0; i < ContadorLibros; i++) {
+           
+           if (!(libros[i]==null)) {
+                String acceso = libros[i].titulo.toLowerCase();
+                busqueda = busqueda.toLowerCase().trim();
+           
+                if (acceso.trim().contains(busqueda)) {
+                    Matriz[accesoTabla][0] = libros[i].titulo;
+                    Matriz[accesoTabla][1] = libros[i].autor;
+                    Matriz[accesoTabla][2] = libros[i].genero;
+                    Matriz[accesoTabla][3] = libros[i].publishYear;
+                    Matriz[accesoTabla][4] = libros[i].ejemplares;
+                    accesoTabla++;
+                }
+            }
+        }
+           
+       return Matriz;
+   }
+   
+   
+   public static Object [][] foundAutor(String busqueda){
+       Object[][] Matriz = new Object [100][5];
+       int accesoTabla = 0;
+       for (int i = 0; i < ContadorLibros; i++) {
+           
+           if(!(libros[i] == null)){
+               // trabajar todo en minusculas
+                String acceso = libros[i].autor.toLowerCase();
+                busqueda = busqueda.toLowerCase(); 
+           
+                if (acceso.trim().contains(busqueda.trim())) {
+                    Matriz[accesoTabla][0] = libros[i].titulo;
+                    Matriz[accesoTabla][1] = libros[i].autor;
+                    Matriz[accesoTabla][2] = libros[i].genero;
+                    Matriz[accesoTabla][3] = libros[i].publishYear;
+                    Matriz[accesoTabla][4] = libros[i].ejemplares;
+                    accesoTabla++;
+                }
+           }
+       }
+       return Matriz;
+   }
+   
+   
+   
    public static boolean DatosRegistro(String name, String id, String autor,String genero, String añoP, int Ejemplares, boolean guardar){
        // buscar si ya exite el carnet
        for (int i = 0; i < ContadorLibros; i++) { 
-            if (libros[i].IBN.equalsIgnoreCase(id)) {
+            if (libros[i].IBN.trim().equals(id.trim())) {
+                libros[i].ejemplares = libros[i].ejemplares + Ejemplares; // aumentar los ejemplares del libro
                 return true; // el libro ya existe
             }
         }
@@ -176,40 +272,54 @@ public class Libro {
    
    public static Object[][] TresDatosLibro() {
     
-    Object[][] matriz = new Object[ContadorLibros][3]; 
+    Object[][] matriz = new Object[ContadorLibros][5]; 
     
     for (int i = 0; i < ContadorLibros; i++) {
         if (libros[i] != null) {
             matriz[i][0] = libros[i].titulo;
             matriz[i][1] = libros[i].IBN;
-            matriz[i][2] = libros[i].ejemplares;
+            matriz[i][2] = libros[i].autor;
+            matriz[i][3] = libros[i].publishYear;
+            matriz[i][4] = libros[i].ejemplares;
+            
         }
     }
     return matriz;
 }
    
-public static  void eliminarRegistro(int fila) {
+public static  void eliminarRegistro(int fila, int eliminados) {
     // 1. Validamos que la fila sea válida y que el contador sea mayor a 0
     if (fila >= 0 && fila < ContadorLibros) {
         
-        // 2. Realizamos el desplazamiento (Shift) para cerrar el hueco
-        for (int i = fila; i < ContadorLibros - 1; i++) {
-            libros[i] = libros[i + 1];
+        if (true) {
+            
         }
         
-        // 3. Limpiamos la última posición original (la que quedó duplicada)
-        estudiante[ContadorLibros - 1] = null;
+        if (libros[fila].ejemplares > eliminados) {
+            libros[fila].ejemplares = libros[fila].ejemplares -eliminados;
+        }
+        else{
+            // 2. Realizamos el desplazamiento (Shift) para cerrar el hueco
+            for (int i = fila; i < ContadorLibros - 1; i++) {
+                libros[i] = libros[i + 1];
+            }
         
-        // 4. Reducimos el contador de objetos reales en memoria
-        ContadorLibros--;
-       
+            // 3. Limpiamos la última posición original (la que quedó duplicada)
+            estudiante[ContadorLibros - 1] = null;
+        
+            // 4. Reducimos el contador de objetos reales en memoria
+            ContadorLibros--;
+        }
         
         System.out.println("Registro libro eliminado ");
     } else {
         System.out.println("Error: No has seleccionado una fila válida.");
     }
 }
+
+
    
+
     /*
     Permite buscar un libro por código interno o ISBN y modificar sus datos, excepto el 
 código interno. La cantidad total de ejemplares puede modificarse siempre que el nuevo 

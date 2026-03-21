@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.bibliosystem.Ventanas;
+import com.mycompany.bibliosystem.Bitacora;
 import com.mycompany.bibliosystem.Estudiante;
 import com.mycompany.bibliosystem.prestamo;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MenuUsuario extends javax.swing.JFrame {
     
+    private static String OpB = "El estudiante ingreso a su menu";
+    private static String MoB = "MenuUsuario";
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuUsuario.class.getName());
 
     /**
@@ -24,9 +27,13 @@ public class MenuUsuario extends javax.swing.JFrame {
         
         int ContadorPrestamos = prestamo.ContadorPrestamos;
         
-        int carnetActual= tres.carnetActual;
+        int carnetActual= tres.carnetActual();
         
         String nombre = Estudiante.getName(carnetActual);
+        
+        String Tcarnet = Integer.toString(carnetActual);
+        
+        Bitacora.appendBitacora(OpB, Tcarnet , MoB);
         
         LabelNombre.setText(nombre);
         
@@ -102,6 +109,7 @@ public class MenuUsuario extends javax.swing.JFrame {
         jLabel2.setText("Libros Prestados Actualmente ");
 
         jButton3.setText("Refrescar");
+        jButton3.addActionListener(this::jButton3ActionPerformed);
 
         LabelNombre.setText("jLabel3");
 
@@ -188,6 +196,13 @@ public class MenuUsuario extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        // boton refrescar 
+        int carnetActual = tres.carnetActual();
+        setValuesTable(prestamo.ListaPrestamos, carnetActual, prestamo.ContadorPrestamos);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void setValuesTable(prestamo[] prestamos, int carnet,int ContadorPrestamos) {
     DefaultTableModel modelo = (DefaultTableModel) TablaUsuario.getModel();
     modelo.setRowCount(0); // Limpiamos la tabla antes de cargar
@@ -197,8 +212,8 @@ public class MenuUsuario extends javax.swing.JFrame {
         // Validamos que la posición no sea null y que el carnet coincida
         if (prestamos[i] != null && prestamos[i].getCarnet() == carnet) {
             Object[] datos = new Object[5];
-            datos[0] = prestamos[i].getNombreLibro();
-            datos[1] = prestamos[i].getIBN();
+            datos[0] = prestamos[i].NombreLibro;
+            datos[1] = prestamos[i].IBN;
             datos[2] = prestamos[i].getFP();
             datos[3] = prestamos[i].getFD();
             datos[4] = prestamos[i].getHistorial();

@@ -6,6 +6,8 @@ package com.mycompany.bibliosystem.Ventanas;
 import javax.swing.JOptionPane;
 import com.mycompany.bibliosystem.Estudiante;
 import com.mycompany.bibliosystem.Moderadores;
+import com.mycompany.bibliosystem.Bitacora;
+
 
 /**
  *
@@ -22,11 +24,20 @@ public class tres extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(tres.class.getName());
 
+    
+    private static String operacionBitacora = "Inicio de secion";
+    private static String moduloBitacora = "tres";
     /**
      * Creates new form tres
      */
     public tres() {
         initComponents();
+    }
+    
+    public static int carnetActual(){
+        
+        int uno = Integer.parseInt(Carnet.getText());
+        return uno ;
     }
 
     /**
@@ -151,7 +162,10 @@ public class tres extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CarnetActionPerformed
 
-    
+    public static String Mcarnet (){
+        String Mcarnet = Carnet.getText(); 
+        return Mcarnet ;
+    }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -163,6 +177,7 @@ public class tres extends javax.swing.JFrame {
         }
         if (mo_user.isSelected()) {
             Ingreso = 2;
+           
         }
         if (es_user.isSelected()) {
             Ingreso=3;
@@ -175,6 +190,10 @@ public class tres extends javax.swing.JFrame {
             String carr = Carnet.getText();
             carnetActual = Integer.parseInt(carr);
             String contra = Password.getText();
+            
+            
+            
+            
         
             // verificar que el usuario exista 
             boolean existe = Estudiante.DatosRegistro("", carnetActual, contra, "",false);
@@ -182,12 +201,16 @@ public class tres extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,
                 " Estudiante no encontrado ",
                 " ERROR:",JOptionPane.ERROR_MESSAGE);
+                Bitacora.appendBitacora(operacionBitacora+" fallido "+"Estudiante", carr, moduloBitacora);
+                
             }
             else {
                 JOptionPane.showMessageDialog(this, 
                 "Inicio de sesion exitoso",
                 " Bienbenido:",
                 JOptionPane.INFORMATION_MESSAGE);
+                
+                Bitacora.appendBitacora(operacionBitacora+" exitoso "+"Estudiante", carr, moduloBitacora);
             
                 MenuUsuario ventanaUser = new MenuUsuario();
                 this.dispose();
@@ -203,6 +226,7 @@ public class tres extends javax.swing.JFrame {
                 String name = Moderadores.getName(carnetActual,contra);
                 
                 if (!(name == "")) {
+                    Bitacora.appendBitacora(operacionBitacora+" exitoso "+"Moderador", carr, moduloBitacora);
                     JOptionPane.showMessageDialog(this, "Bienbenido moderador","Entrada Exitoso",JOptionPane.INFORMATION_MESSAGE);
                     this.dispose();
                     MenuModerador ventana = new MenuModerador();
@@ -211,6 +235,7 @@ public class tres extends javax.swing.JFrame {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, " Moderador no encontrado","Error : ",JOptionPane.ERROR_MESSAGE);
+                    Bitacora.appendBitacora(operacionBitacora+" fallido "+"Moderador"+" no encontrado", carr, moduloBitacora);
                     
                 }
             }
@@ -273,7 +298,7 @@ public class tres extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Carnet;
+    private static javax.swing.JTextField Carnet;
     private javax.swing.JTextField Password;
     private javax.swing.JRadioButton ad_user;
     private javax.swing.JRadioButton es_user;

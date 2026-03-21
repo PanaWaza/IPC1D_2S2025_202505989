@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.bibliosystem.Ventanas;
+import com.mycompany.bibliosystem.Bitacora;
+import com.mycompany.bibliosystem.EscrituraPrestamos;
+import com.mycompany.bibliosystem.Estudiante;
 import com.mycompany.bibliosystem.Libro;
+import com.mycompany.bibliosystem.prestamo;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
@@ -14,6 +18,8 @@ import javax.swing.JOptionPane;
 public final class MenuPrestamo extends javax.swing.JFrame {
     
     
+    private static String OpB = "Prestamo de libro";
+    private static String MoB = "MenuPrestamo";
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuPrestamo.class.getName());
 
     /**
@@ -155,11 +161,26 @@ public final class MenuPrestamo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // obtener estudiante actual
+        // boton prestar
+        
+        // validar que el libro no este en sus prestamos
+        
         int CarnetActual = tres.carnetActual;
+        
+        String IBN = entradaIbn.getText().trim();
+        String Tcarnet = Integer.toString(CarnetActual);
+        
+        if (prestamo.ConfirmarExistenciPrestamo(CarnetActual, IBN)) {
+            JOptionPane.showMessageDialog(this, " NO se puede prestar el libro ya lo ha prestado","Error :",JOptionPane.ERROR_MESSAGE);
+        
+            Bitacora.appendBitacora(OpB+ " fallido", Tcarnet , MoB);
+            return;
+        }
         
         initPrestamo(CarnetActual);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+   
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int ContadorLibros = Libro.ContadorLibros;
@@ -176,35 +197,66 @@ public final class MenuPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void initPrestamo(int Carnet){
-        
         // obtener ibn
         String IBN = entradaIbn.getText().trim();
-        // metodo para obtener el nombre del libro atraves del ibn
         String BookName = Libro.getBookName(IBN);
+        
+        if (IBN.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Tiene ingresar el ibn", "Error : ", JOptionPane.ERROR_MESSAGE);
+            String Tcarnet = Integer.toString(Carnet);
+            Bitacora.appendBitacora(OpB + " fallido (no se ingreso ibn)", Tcarnet, MoB);
+            return;
+        }
+        
+        if (prestamo.BuscarPrestamosVencidos(Carnet)) {
+            JOptionPane.showMessageDialog(this, "Tiene prestamos vencidos, tiene que arreglar su situación","Error : ",JOptionPane.ERROR_MESSAGE);
+            String Tcarnet = Integer.toString(Carnet);
+            Bitacora.appendBitacora(OpB+ " fallido (prestamos vencidos)", Tcarnet , MoB);
+            return;
+        }
+        
+        if (!prestamo.CantidadPrestamos(Carnet)) {
+            JOptionPane.showMessageDialog(this, "No puede prestar mas de 3 libros","Error : ",JOptionPane.ERROR_MESSAGE);
+            String Tcarnet = Integer.toString(Carnet);
+            Bitacora.appendBitacora(OpB+ " fallido (quiso prestar mas de 3 libros)", Tcarnet , MoB);
+            return;
+        }
+        
+        
+        
+        if (!Libro.ejemp(IBN)) {
+            JOptionPane.showMessageDialog(this, "No hay suficientes ejemplares para prestar el libro","Error : ",JOptionPane.ERROR_MESSAGE);
+            String Tcarnet = Integer.toString(Carnet);
+            Bitacora.appendBitacora(OpB + " fallido (Ejemplares insuficientes)", Tcarnet, MoB);
+            return;
+        }
+        // metodo para obtener el nombre del libro atraves del ibn
+        
         
         if (BookName.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No se encontro el libro","Error : "+BookName,JOptionPane.ERROR_MESSAGE);
+            String Tcarnet = Integer.toString(Carnet);
+            Bitacora.appendBitacora(OpB + " fallido (No se encontro el libro)", Tcarnet, MoB);
+            return;
         }
-        else{
-            JOptionPane.showMessageDialog(this, "Se prestó correctamente el libro", "Exito en la operación",JOptionPane.INFORMATION_MESSAGE);
-            // obtener fecha actual
-            String fechaP = Libro.getDatePrestamo();
-            
-            // Obtener fecha de devolucion
-            String fechaD = Libro.SumaFecha(fechaP);
-            
-            Object [] prestamo = new Object [6];
-            prestamo[0]=Carnet;
-            prestamo[1]=IBN;
-            prestamo[2]=BookName;
-            prestamo[3]=fechaP;
-            prestamo[4]=fechaD;
-            String historial = "activo";
-            prestamo[5]=historial;
         
         
-            com.mycompany.bibliosystem.prestamo.guardarPrestamo(Carnet, IBN, BookName, fechaP, fechaD,historial);
-        }  
+        // obtener fecha actual
+        String fechaP = Libro.getDatePrestamo();
+            
+        // Obtener fecha de devolucion
+        String fechaD = Libro.SumaFecha(fechaP);
+            
+        String historial = "activo";
+        
+        prestamo.guardarPrestamo(Carnet, IBN, BookName, fechaP, fechaD,historial);
+        Estudiante.AgregarPrestamosActivos(Carnet);
+            
+        String Tcarnet = Integer.toString(Carnet);
+        Bitacora.appendBitacora(OpB+ " exitoso ", Tcarnet , MoB);
+            
+        JOptionPane.showMessageDialog(this, "Se prestó correctamente el libro", "Exito en la operación",JOptionPane.INFORMATION_MESSAGE);
+        EscrituraPrestamos.RegistrarPrestamo(Tcarnet, IBN, BookName, fechaP, fechaD, historial);
     }
     
     public void CargarTabla(Libro[] Libros,int ContadorLibros) {

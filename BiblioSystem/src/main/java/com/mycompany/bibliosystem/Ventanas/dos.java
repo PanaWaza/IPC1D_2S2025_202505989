@@ -5,6 +5,9 @@
 package com.mycompany.bibliosystem.Ventanas;
 import com.mycompany.bibliosystem.Estudiante;
 import javax.swing.JOptionPane;
+import com.mycompany.bibliosystem.Bitacora;
+import com.mycompany.bibliosystem.EscrituraArchivoCuentas;
+
 
 /**
  *
@@ -14,12 +17,16 @@ public class dos extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(dos.class.getName());
 
+    private static String OpB = "Se creo nuevo usuario";
+    private static String MoB = "dos";
+    
     /**
      * Creates new form dos
      */
     public dos() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,18 +72,19 @@ public class dos extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(carr, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(carnet, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(carr, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(carnet, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(47, 47, 47)
-                        .addComponent(jButton1)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,12 +98,12 @@ public class dos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(carnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(carnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -132,14 +140,21 @@ public class dos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,
                     " El carnet ya existe ",
                     " ERROR:",JOptionPane.ERROR_MESSAGE);
+            
+            String carnet = Integer.toString(Ncarne);
+            Bitacora.appendBitacora(OpB+" fallido "+"carnet existente", carnet, MoB);
         }
         else {
             JOptionPane.showMessageDialog(this, 
                     " Usuario creado correctamente, por favor guarda tus credenciales",
                     " Usuario registrado:",
                     JOptionPane.INFORMATION_MESSAGE);
+            EscrituraArchivoCuentas.IngresarEstudiante(name, Ncarne, contra, carrera, 0, 0);
             
             this.dispose(); // cerrar ventana antes de la siguiente ventana
+            
+            String carnet = Integer.toString(Ncarne);
+            Bitacora.appendBitacora(OpB+" exitosso ", carnet, MoB);
             
             uno window = new uno();
             window.setVisible(true);
